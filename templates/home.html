@@ -1,0 +1,124 @@
+{% extends 'layout.html' %}
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+{% block content %}
+
+
+<body>
+    <p>Welcome back, {{ username }}!</p>
+    <h3>HR Analytics: Job Change of Data Scientists</h3>
+<form action="{{ url_for('predict') }}" method="POST">
+
+
+<div >
+    <label for="cdi">City_development_index	</label>
+        <center><input type="text" id="cdi" name="City_development_index" style="width: 250px;" placeholder="Select between(0.45-0.95)"/ >
+        </center>
+</div>
+
+<div >
+    <label for="g">Gender </label>
+    <center>
+<!--      <input type="text" placeholder="Select Gender"/>-->
+      <select name="Gender" id="Gender" style="width: 250px;" >
+      <option value="Male" >Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select></center>
+</div>
+<div>
+    <label for="re">Relevent_experience</label>
+    <center>
+    <select name="Relevent_experience" id="Relevent_experience" style="width: 250px;">
+      <option value="Has relevent experience">Has relevent experience</option>
+      <option value="No relevent experience">No relevent experience</option>
+    </select></center>
+</div>
+<div>
+    <label for="eu">Enrolled_university</label>
+    <center><select name="Enrolled_university" id="Enrolled_university" style="width: 250px;">
+      <option value="no_enrollment">no_enrollment</option>
+      <option value="Full time course">Full time course</option>
+      <option value="Part time course">Part time course</option>
+    </select></center>
+</div>
+<div>
+    <label for="el">Education_level</label>
+    <center><select name="Education_level" id="Education_level" style="width: 250px;">
+      <option value="Graduate">Graduate</option>
+      <option value="Masters">Masters</option>
+      <option value="High School">High School</option>
+      <option value="Phd">Phd</option>
+      <option value="Primary School">Primary School</option>
+    </select></center>
+</div>
+<div>
+    <label for="md">Major_discipline</label>
+    <center>    <select name="Major_discipline" id="Major_discipline" style="width: 250px;">
+      <option value="STEM">STEM</option>
+      <option value="Business Degree">Business Degree</option>
+      <option value="Arts">Arts</option>
+      <option value="Humanities">Humanities</option>
+      <option value="No Major">No Major</option>
+      <option value="Other">Other</option>
+    </select></center>
+</div>
+
+<div>
+    <label for="e">Experience</label>
+   <center> <input type="text" id="e" name="Experience" style="width: 250px;" placeholder="Select Between (1 - 20)"/>
+    </center>
+</div>
+
+<div>
+    <label for="cs">Company_size</label>
+    <center>
+      <input type="text" id="cs" name="Company_size" style="width: 250px;" placeholder="Select Between (1 - 10000)"/>
+    </center>
+</div>
+
+<div>
+    <label for="ct">Company_type</label>
+    <center>
+       <select name="Company_type" id="Company_type" style="width: 250px;">
+      <option value="Pvt Ltd">Pvt Ltd</option>
+      <option value="Funded Startup">Funded Startup</option>
+      <option value="Early Stage Startup">Early Stage Startup</option>
+       <option value="Other">Other</option>
+       <option value="Public Sector">Public Sector</option>
+       <option value="NGO">NGO</option>
+    </select>
+    </center>
+</div>
+<div>
+    <label for="lnj">Last_new_job</label>
+    <center><input type="text" id="lnj" style="width: 250px;" name="Last_new_job" placeholder="Select Between (1 - 4)"/>
+    </center>
+</div>
+
+<div>
+    <label for="th">Training_hours</label>
+    <center><input type="text" id="th" name="Training_hours" style="width: 250px;" placeholder="Select Between (1 - 4)"/>
+    </center>
+</div>
+    <br>
+<div>
+    <input type="submit" value="Submit">
+    <center>
+        {{ prediction_text }}
+    </center>
+
+</div>
+     </form>
+</body>
+{% endblock %}
+</html>
+
+
+
+
+
+
+
